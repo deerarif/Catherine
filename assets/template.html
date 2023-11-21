@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Generate Invoice</title>
+    <style>
+        html {
+            font-size: 0.6rem;
+            font-family: monospace;
+        }
+
+        .container-wrap {
+            height: auto;
+        }
+
+        header {
+            height: 50px;
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        .info2 {
+            float: right;
+        }
+
+        .info {
+            float: left;
+            padding-top: 2px;
+        }
+
+        .info p {
+            margin: 0;
+        }
+
+        .info2 h3 {
+            margin: 0;
+        }
+
+        table {
+            width: 100%;
+            padding-top: 10px;
+        }
+
+        table td {
+            vertical-align: top;
+            white-space: pre-line;
+        }
+
+        .info2 p {
+            margin: 0;
+        }
+
+        .table-atas-kanan {
+            max-width: 350px;
+            text-align: left;
+        }
+
+        .note {
+            font-size: 1.1rem;
+            font-weight: bolder;
+        }
+
+        .meh {
+            width: 90px;
+        }
+
+
+        .main table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .container-footer {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            height: 60%;
+            padding-top: 10px;
+            -webkit-box-pack: space-evenly;
+            -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+        }
+
+        .container-footer div {
+            width: 25%;
+            margin-left: 5%;
+            border-bottom: 3px solid grey;
+        }
+
+        footer {
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-wrap">
+
+        <div class="info">
+            <!-- <p>PT Astra International Tbk 0 Honda Sales Operation
+                <br>Jl. Kh. Agus Salim No. 10
+                <br>Jl. Kh. Agus Salim No. 10
+                <br>SAMARINDA 0
+            </p> -->
+            <table class="table-atas-kanan">
+                <tr>
+                    <td class="meh">Kode</td>
+                    <td>:</td>
+                    <td>{{this.Kode_Dealer}}</td>
+                </tr>
+                <!-- <tr>
+                    <td>Nama Pelanggan</td>
+                    <td>:</td>
+                    <td>{{this.customerName}}</td>
+                </tr>
+                <tr>
+                    <td>Nomer HP Pelanggan</td>
+                    <td>:</td>
+                    <td>{{this.phone}}</td>
+                </tr> -->
+
+            </table>
+            <span class="note">Catatan:</span>
+        </div>
+        <div class="info2">
+            <table>
+                <tr>
+                    <td>Tanggal</td>
+                    <td>:</td>
+                    <td>{{this.Tanggal_Order}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="main">
+        <table style="margin-top: 230px; text-align: left;">
+            <tr style="border-top: 1px solid black;border-bottom: 1px solid black;">
+                <th>No</th>
+                <th>Part Number</th>
+                <th>Deskripsi</th>
+                <th style="width: 50px;">QTY</th>
+                <th>HET(Harga Satuan)</th>
+                <th>Diskon</th>
+                <th>Harga Total</th>
+            </tr>
+            {{#each List }}
+            <tr>
+                <td>{{No}}</td>
+                <td>{{Kode_Barang}}</td>
+                <td>{{Nama_Barang}}</td>
+                <td>{{Quantity}}</td>
+                <td>{{Harga_Barang}},-</td>
+                <td>{{Diskon}}</td>
+                <td>{{Total}},-</td>
+            </tr>
+            {{/each}}
+        </table>
+    </div>
+</body>
+
+
+<!-- <footer style="height: 100px; background-color: red;">
+    <table
+        style="text-align: center; font-size:1rem;border-bottom: 1px solid black; border-top: 1px solid black; width: 100%;">
+        <tr>
+            <td style="text-align: left; padding-left: 10px;">Total QTY :</td>
+            <td style="width: 26.6%; text-align: end; font-weight: bold;">
+            </td>
+            <td style="text-align: end; padding-right: 8%; ">Total Harga :</td>
+            <td style="text-align: end; padding-right: 8.3%; font-weight: bold;">
+            </td>
+        </tr>
+
+    </table>
+    <h6 style="text-align: right;">Cost Amount include discount and tax.</h6>
+</footer> -->
+
+</html>
